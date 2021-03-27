@@ -1,4 +1,3 @@
-import csv
 
 class HashTable:
     """
@@ -26,16 +25,16 @@ class HashTable:
         """
 
         placement = hash(key) % len(self.table)
-        list = self.table(placement)
+        bucket_list = self.table[placement]
 
 
-        for kv in list:
+        for kv in bucket_list:
             if kv[0] == key:
                 kv[1] == item
                 return True
 
         kValue = [key, item]
-        list.append(kValue)
+        bucket_list.append(kValue)
         return True
 
 
@@ -47,9 +46,9 @@ class HashTable:
         """
 
         placement = hash(key) % len(self.table)
-        list = self.table(placement)
+        bucket_list = self.table[placement]
 
-        for kValue in list:
+        for kValue in bucket_list:
             if kValue[0] == key:
                 return kValue[1]
             return None
