@@ -10,5 +10,14 @@ def getPackageInfo():
         print('Package: {}'.format(packageHash.lookup(i+1)))
 
 
+
+
+
+
 getPackageInfo()
+loadDistances('distances.csv')
+
+
+
+
 

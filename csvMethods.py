@@ -56,3 +56,25 @@ def loadPackages(file, hash):
 
             hash.insert(packageID, pack)
 
+
+def loadDistances(file):
+    """
+    loads the distances csv information into a 2D array
+    :param file: the distances.cvs file
+    :return: 2D array of distances
+    """
+    data = []
+    with open(file) as distanceRange:
+        reader = csv.reader(distanceRange, delimiter = ",")
+        for row in reader:
+            data.append(row)
+        for i in range(len(data)):
+            print(data[i])
+
+
+
+
+
+
+
+
