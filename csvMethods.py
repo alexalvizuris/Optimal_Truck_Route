@@ -68,8 +68,24 @@ def loadDistances(file):
         reader = csv.reader(distanceRange, delimiter = ",")
         for row in reader:
             data.append(row)
-        for i in range(len(data)):
-            print(data[i])
+
+    print(data)
+
+
+
+def loadAdresses(file):
+    """
+    loads the addresses from the imprted address csv file
+    :param file: the csv file containing the addresses that are searchable
+    :return: list of addresses
+    """
+    addresses = []
+
+    with open(file) as addressList:
+        reader = csv.reader(addressList, delimiter = ',')
+        for row in reader:
+            addresses.append(row)
+    return addresses
 
 
 

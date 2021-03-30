@@ -3,6 +3,7 @@ from csvMethods import *
 
 packageHash = HashTable()
 loadPackages('packages.csv', packageHash)
+loadAdresses('addresses.csv')
 
 
 def getPackageInfo():
@@ -11,11 +12,26 @@ def getPackageInfo():
 
 
 
+def add_lookup():
+    add_list = loadAdresses('addresses.csv')
+    search = input("Type an address: ")
+    count = 0
+
+    for i in add_list:
+         if search == i:
+            count += 1
+            return add_list.index(i)
+
+
+
+
 
 
 
 getPackageInfo()
 loadDistances('distances.csv')
+add_lookup()
+
 
 
 
