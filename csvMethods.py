@@ -75,7 +75,7 @@ def loadDistances(file):
 
 def loadAdresses(file):
     """
-    loads the addresses from the imprted address csv file
+    loads the addresses from the imported address csv file
     :param file: the csv file containing the addresses that are searchable
     :return: list of addresses
     """
