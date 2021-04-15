@@ -1,9 +1,12 @@
+import datetime
+
+
 class Truck:
     """
     Creates a truck class that includes information regarding the truck and its contents
     """
 
-    def __init__(self, location, time, departure, mileage):
+    def __init__(self):
         """
         constructor for the truck class
         :param location: trucks current location
@@ -12,9 +15,15 @@ class Truck:
         :param mileage: mileage consumed by truck en route
         """
 
-        self.location = location
-        self.time = time
-        self.departure = departure
-        self.mileage = mileage
+        self.location = "HUB"
+        self.time = datetime.datetime(2021, 4, 15, 8, 1, 1)
+        self.departure = datetime.datetime(2021, 4, 15, 8, 1, 1)
+        self.mileage = 0
+        self.package_list = []
 
-    # possible string method here
+
+
+
+
+
+

@@ -1,9 +1,10 @@
 from hash import *
 from csvMethods import *
 from algorithm import *
+from truck import *
 
 packageHash = HashTable()
-loadPackages('packages.csv', packageHash)
+all_packages = loadPackages('packages.csv', packageHash)
 loadAdresses('addresses.csv')
 
 
@@ -12,23 +13,31 @@ def getPackageInfo():
         print('Package: {}'.format(packageHash.lookup(i+1)))
 
 
-
-def add_lookup():
-    add_list = loadAdresses('addresses.csv')
-    search = input("Type an address: ")
-    count = 0
-
-    for i in add_list:
-         if search == i:
-            count += 1
-            return add_list.index(i)
+truck1 = Truck()
+truck2 = Truck()
+truck3 = Truck()
 
 
-truck1 = [1, 13, 14, 15, 16, 19, 20, 29, 30, 31, 34, 37, 40]
-truck2 = [2, 3, 4, 5, 6, 7, 8, 9, 18, 25, 28, 32, 36, 38]
-truck3 = [10, 11, 12, 17, 21, 22, 23, 24, 26, 27, 33, 35, 39]
+def load_truck():
+    truck1.package_list = [1, 13, 14, 15, 16, 19, 20, 29, 30, 31, 34, 37, 40]
+    truck2.package_list = [2, 3, 4, 5, 6, 7, 8, 9, 18, 25, 28, 32, 36, 38]
+    truck3.package_list = [10, 11, 12, 17, 21, 22, 23, 24, 26, 27, 33, 35, 39]
 
-# distanceMatrix = loadDistances('distances.csv')
+
+load_truck()
+
+
+def truck_route(truckA, truckB, truckC):
+    trucks = [truckA, truckB, truckC]
+
+    for truck in trucks:
+        current_load = truck.package_list
+
+
+
+
+
+
 
 
 

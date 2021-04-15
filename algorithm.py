@@ -1,28 +1,23 @@
-import math
-from csvMethods import *
-from array import *
-
-
 def not_in(element, subset):
     return ((1 << element) & subset) == 0
+
+
+def combinations(thisSet, at, r, nodes, subsets):
+    if r == 0:
+        subsets.add(thisSet)
+    else:
+        for i in range(at, nodes):
+            thisSet = thisSet | (1 << i)
+
+            combinations(thisSet, i + 1, r - 1, nodes, subsets)
+
+            thisSet = thisSet & ~(1 << i)
 
 
 def combinations(r, nodes):
     subsets = []
     combinations(0, 0, r, nodes, subsets)
     return subsets
-
-
-def combinations(set, at, r, nodes, subsets):
-    if r == 0:
-        subsets.add(set)
-    else:
-        for i in range(at, nodes):
-            set = set | (1 << i)
-
-            combinations(set, i + 1, r - 1, nodes, subsets)
-
-            set = set & ~(1 << i)
 
 
 def min_path(matrix, memo, start, nodes):
@@ -74,19 +69,18 @@ def solve(matrix, memo, start, nodes):
         for subset in combinations(r, nodes):
             if not_in(start, subset):
                 continue
-            for next in range(nodes):
-                if next == start | not_in(next, subset):
+            for nextUp in range(nodes):
+                if nextUp == start | not_in(nextUp, subset):
                     continue
-                current_state = subset ^ (1 << next)
+                current_state = subset ^ (1 << nextUp)
                 minimum = float('inf')
                 for end in range(nodes):
-                    if end == start | end == next | not_in(end, subset):
+                    if end == start | end == nextUp | not_in(end, subset):
                         continue
-                    new_distance = memo[end][current_state] + matrix[end][next]
+                    new_distance = memo[end][current_state] + matrix[end][nextUp]
                     if new_distance < minimum:
                         minimum = new_distance
-                memo[next][subset] = minimum
-
+                memo[nextUp][subset] = minimum
 
 
 def tsp_route(matrix, start):
@@ -97,9 +91,7 @@ def tsp_route(matrix, start):
     setup_memo(matrix, memo, start, nodes)
     solve(matrix, memo, start, nodes)
 
-    min = min_path(matrix, memo, start, nodes)
+    min_p = min_path(matrix, memo, start, nodes)
     route = optimal_path(matrix, memo, start, nodes)
 
-    return min, route
-
-
+    return min_p, route
