@@ -9,9 +9,9 @@ all_packages = loadPackages('packages.csv', packageHash)
 graph1 = Graph()
 
 
-def getPackageInfo():
-    for i in range (len(packageHash.table) +1):
-        print('Package: {}'.format(packageHash.lookup(i+1)))
+# def getPackageInfo():
+#     for i in range (len(packageHash.table)):
+#         print('Package: {}'.format(packageHash.lookup(i+1)))
 
 
 

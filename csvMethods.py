@@ -46,6 +46,7 @@ def loadDistances_v(file, graph):
 
             vertex = Vertex(id, address, city, state, zip)
             graph.add_v(vertex)
+            print(vertex)
     return graph
 
 
@@ -65,24 +66,9 @@ def loadDistances_e(file, graph):
                 v2 = x
                 weight = row[x]
                 graph.add_e(v1, v2, weight)
+                print(v1, v2, weight)
     return graph
 
-
-
-
-def loadAdresses(file):
-    """
-    loads the addresses from the imported address csv file
-    :param file: the csv file containing the addresses that are searchable
-    :return: list of addresses
-    """
-    addresses = []
-
-    with open(file) as addressList:
-        reader = csv.reader(addressList, delimiter = ',')
-        for row in reader:
-            addresses.append(row)
-    return addresses
 
 
 
