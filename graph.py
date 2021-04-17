@@ -45,7 +45,7 @@ class Graph:
 
     def dist(self, current, next):
         """
-        method to retrieve distance between to vertices
+        method to retrieve distance between two vertices
         :param current: current vertex
         :param next: next index
         :return: edge weight
