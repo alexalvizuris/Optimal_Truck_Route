@@ -2,13 +2,12 @@ class Vertex:
     """
     creates Vertex class
     """
-    def __init__(self, id, name, address, city, state, zipcode):
+    def __init__(self, id, address, city, state, zipcode):
         """
         Constructor for the Vertex class. Takes in attributes for the Vertex as arguments
         :param id: Vertex id
         """
         self.id = id
-        self.name = name
         self.address = address
         self.city = city
         self.state = state
@@ -30,7 +29,7 @@ class Graph:
         self.vertex_list.append(vertex)
         for edge in self.edge_list:
             edge.append(0)
-        self.edge_list.append([0] * len(self.edge_list) + 1)
+        self.edge_list.append([0] * (len(self.edge_list) + 1))
 
 
     def add_e(self, id1, id2, weight):
