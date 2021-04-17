@@ -1,5 +1,3 @@
-import datetime
-
 
 class Truck:
     """
@@ -8,18 +6,15 @@ class Truck:
 
     def __init__(self):
         """
-        constructor for the truck class
-        :param location: trucks current location
-        :param time: timestamp
-        :param departure: time of departure from Hub
-        :param mileage: mileage consumed by truck en route
+        Constructor for the truck class. Initializes (time, mileage, packages, current node, and speed mpm)
+        attributes to the Truck instance.
         """
 
-        self.location = "HUB"
-        self.time = datetime.datetime(2021, 4, 15, 8, 1, 1)
-        self.departure = datetime.datetime(2021, 4, 15, 8, 1, 1)
+        self.speed = 0.3
+        self.time = 0
         self.mileage = 0
         self.package_list = []
+        self.current_node = 1
 
 
 

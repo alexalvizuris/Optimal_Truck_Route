@@ -5,7 +5,8 @@ from truck import *
 
 packageHash = HashTable()
 all_packages = loadPackages('packages.csv', packageHash)
-loadAdresses('addresses.csv')
+
+
 
 
 def getPackageInfo():
@@ -27,11 +28,20 @@ def load_truck():
 load_truck()
 
 
-def truck_route(truckA, truckB, truckC):
-    trucks = [truckA, truckB, truckC]
 
-    for truck in trucks:
-        current_load = truck.package_list
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
