@@ -16,9 +16,10 @@ class Main:
 
 
     while True:
+        print('')
         print('Welcome to WGUPS: ')
         print('\nEnter 1 to Run Program\nEnter 2 for Package Inquiry\nEnter 3 for All Statuses\nEnter 4 to Exit.')
-        menu_option = input('Please select an option: ')
+        menu_option = input('Please select an option (starting with option 1): ')
 
         if menu_option == '1':
 
@@ -128,10 +129,14 @@ class Main:
                 print('')
                 print(lookup(package_hash.lookup(i), time1))
                 print('')
+
+            print('All Packages at ' + min_to_hour(time2) + ': \n')
             for i in range(1, 41):
                 print('')
                 print(lookup(package_hash.lookup(i), time2))
                 print('')
+
+            print('All Packages at ' + min_to_hour(time3) + ': \n')
             for i in range(1, 41):
                 print('')
                 print(lookup(package_hash.lookup(i), time3))
