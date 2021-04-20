@@ -46,7 +46,7 @@ def loadDistances_v(file, graph):
 
             vertex = Vertex(id, address, city, state, zip)
             graph.add_v(vertex)
-            print(vertex)
+
     return graph
 
 
@@ -66,7 +66,7 @@ def loadDistances_e(file, graph):
                 v2 = x
                 weight = row[x]
                 graph.add_e(v1, v2, weight)
-                print(v1, v2, weight)
+
     return graph
 
 
