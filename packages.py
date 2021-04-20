@@ -7,7 +7,7 @@ class Package:
         """
         constructor for the package class
         :param ID: package ID
-        :param address: delivery address for pckage
+        :param address: delivery address for package
         :param deadline: time constraints for package
         :param city: city of address for delivery
         :param zipcode: zipcode of address for delivery
@@ -23,8 +23,8 @@ class Package:
         self.deadline = deadline
         self.weight = weight
         self.status = status
-        self.departed = 0
-        self.delivered_at = 0
+        self.departed = 0.0
+        self.delivered_at = 0.0
 
     def __str__(self):
         """

@@ -1,4 +1,5 @@
-
+from packages import *
+from truck import *
 
 def min_to_hour(minutes):
     """
@@ -10,10 +11,10 @@ def min_to_hour(minutes):
     minute = minutes % 60
     if minutes < 720:
         ampm = "AM"
-        time = "%d:02d" % (hour, minute)
+        time = "%d:%02d" % (hour, minute)
     else:
         ampm = "PM"
-        time = '%d:02d' % (hour - 12, minute)
+        time = '%d:%02d' % (hour - 12, minute)
 
     return time + ' ' + ampm
 
@@ -61,8 +62,12 @@ def delivery_route(package_list, graph, truck):
         truck.time += distance / truck.speed
         # updating the delivery time of the package to the trucks current time
         current_package.delivered_at = truck.time
+
         # updating the status of the delivered package
         current_package.status = "Package has been delivered."
+
+
+
         # removing the current package from the truck object's list of packages
         package_list.remove(current_package)
 
@@ -88,7 +93,7 @@ def lookup(package, time):
     """
     package_details = "\nPackage ID: " + str(package.ID) + " Address: " + str(package.address) + ", " + str(package.city) + \
                       ", " + str(package.zipcode) + " Deadline: " + str(min_to_hour(package.deadline)) + " Weight: " + \
-                      str(package.weight) + " Delivery Status: "
+                      str(package.weight) + ' Delivery Status: '
 
     if package is not None:
         if time < package.departed:

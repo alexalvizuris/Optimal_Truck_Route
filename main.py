@@ -9,10 +9,11 @@ import re
 
 class Main:
     package_hash = HashTable()
-    all_packages = loadPackages('packages.csv', package_hash)
+    loadPackages('packages.csv', package_hash)
     graph1 = Graph()
     loadDistances_v('distances.csv', graph1)
     loadDistances_e('distances.csv', graph1)
+
 
     while True:
         print('Welcome to WGUPS: ')
@@ -81,11 +82,13 @@ class Main:
             print('')
             print('Mileage accrued: ' + str(truck1.mileage + truck2.mileage))
 
+
         elif menu_option == "2":
             while True:
                 ID = int(input("Type a Package ID between 1 - 40 (typing 0 Exits the program): "))
-
                 inquiry = package_hash.lookup(int(ID))
+
+
                 if ID == 0:
                     print('')
                     print('Exiting..')
@@ -116,6 +119,7 @@ class Main:
             time1 = 550
             time2 = 610
             time3 = 750
+
 
             print('')
             print('All Packages at ' + min_to_hour(time1) + ": \n")
