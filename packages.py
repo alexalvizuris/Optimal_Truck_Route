@@ -5,7 +5,7 @@ class Package:
 
     def __init__(self, ID, current_node, address, city, state, zipcode, deadline, weight, status):
         """
-        constructor for the package class
+        Constructor for the package class
         :param ID: package ID
         :param address: delivery address for package
         :param deadline: time constraints for package
@@ -28,7 +28,7 @@ class Package:
 
     def __str__(self):
         """
-        creates string method for package class
+        Creates string method for package class
         :return: package info as string
         """
         return "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s" % (self.ID, self.current_node, self.address, self.city, self.state, self.zipcode, self.deadline, self.weight, self.status, self.departed, self.delivered_at)

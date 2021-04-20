@@ -1,11 +1,10 @@
 class Vertex:
     """
-    creates Vertex class
+    Creates Vertex class
     """
     def __init__(self, id, address, city, state, zipcode):
         """
         Constructor for the Vertex class. Takes in attributes for the Vertex as arguments
-        :param id: Vertex id
         """
         self.id = id
         self.address = address
@@ -16,14 +15,16 @@ class Vertex:
 
 class Graph:
     """
-    creates Graph class
+    Creates Graph class and instantiates an empty vertex list and an empty edge list
     """
     vertex_list = []
     edge_list = []
 
     def add_v(self, vertex):
         """
-        method to add vertex to graph instance
+        Big O(N)
+        Method to add vertex to graph instance.
+        Appends input vertex element to a 2D matrix. Then appends edge weights to zero to fill in the graph.
         :param vertex: vertex being added
         """
         self.vertex_list.append(vertex)
@@ -34,7 +35,8 @@ class Graph:
 
     def add_e(self, id1, id2, weight):
         """
-        method to set weight between to vertices
+        Big O(N)
+        Method takes in two vertices and adds in the correct edge weight between the vertices.
         :param id1: first vertex
         :param j: second vertex
         :param weight: weight being added
@@ -45,7 +47,8 @@ class Graph:
 
     def dist(self, current, next):
         """
-        method to retrieve distance between two vertices
+        Big O(N)
+        Method to retrieve distance between two vertices
         :param current: current vertex
         :param next: next index
         :return: edge weight

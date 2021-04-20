@@ -1,9 +1,8 @@
-from packages import *
-from truck import *
 
 def min_to_hour(minutes):
     """
-    converts input minutes to HH:MM format
+    Big O(1)
+    Converts input minutes to HH:MM format by dividing the input by 60 minutes
     :param minutes: input integer representative of minutes
     :return: HH:MM 12hr formatting
     """
@@ -11,17 +10,18 @@ def min_to_hour(minutes):
     minute = minutes % 60
     if minutes < 720:
         ampm = "AM"
-        time = "%d:%02d" % (hour, minute)
     else:
         ampm = "PM"
-        time = '%d:%02d' % (hour - 12, minute)
-
+        hour -= 12
+    time = '%d:%02d' % (hour, minute)
     return time + ' ' + ampm
 
 
 def reverse_min(time):
     """
-    converts input HH:MM into minutes
+    Big O(1)
+    Converts input HH:MM into minutes by parsing the formatted input, splitting hours and minutes and
+    the am/pm string. The times are then calculated into minute format.
     :param time: input HH:MM
     :return: HH:MM in minutes format
     """
@@ -41,7 +41,8 @@ def reverse_min(time):
 
 def delivery_route(package_list, graph, truck):
     """
-    BIG O(N^2) greedy algorithm takes input and determines route for package delivery
+    BIG O(N^2)
+    Greedy algorithm takes input and determines route for package delivery
     :param package_list: list of package IDs that will be delivered during algorithm
     :param graph: representation for addresses to be visited
     :param truck: object carrying the packages.
@@ -74,7 +75,8 @@ def delivery_route(package_list, graph, truck):
 
 def hub_distance(truck, graph):
     """
-    increments the truck object with the miles and time passed by returning to the hub
+    Big O(N)
+    Increments the truck object with the miles and time passed by returning to the hub
     :param truck: truck object
     :param graph: nodes with distances between addresses
     :return:
@@ -86,7 +88,8 @@ def hub_distance(truck, graph):
 
 def lookup(package, time):
     """
-    takes a selected package ID and time as input and returns package information including delivery status
+    Big O(1)
+    Takes a selected package ID and time as input and returns package information including delivery status
     :param package: input package
     :param time: input time of inquire
     :return: package details and delivery status

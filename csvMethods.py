@@ -4,10 +4,9 @@ from packages import *
 
 def loadPackages(file, hash):
     """
-    loads packages into hash file
+    Loads package data from the csv file into the hash file passed as an argument
     :param file: csv file for packages
     :param hash: hashtable created to store package info
-    :return: true
     """
     with open(file) as packageLoad:
         packageInfo = csv.reader(packageLoad, delimiter =",")
@@ -29,7 +28,7 @@ def loadPackages(file, hash):
 
 def loadDistances_v(file, graph):
     """
-    loads the distance data from csv into matrix as vertices
+    Loads the distance data from the csv file into the matrix as vertices
     :param file: the distances.cvs file
     :param graph: graph instance
     """
@@ -53,7 +52,7 @@ def loadDistances_v(file, graph):
 
 def loadDistances_e(file, graph):
     """
-    loads the edge weights between vertices into the matrix
+    Takes in the distances csv file and loads the edge weights between vertices into the matrix
     :param file: the distances.csv file
     :param graph: graph instance
     """

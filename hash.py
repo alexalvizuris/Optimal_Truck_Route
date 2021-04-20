@@ -1,7 +1,7 @@
 
 class HashTable:
     """
-    Creates a hash table that allows inserting and updating functions
+    Creates a hash table that allows inserting and look-up functions
     """
 
 
