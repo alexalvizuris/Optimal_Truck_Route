@@ -47,10 +47,17 @@ def delivery_route(package_list, graph, truck):
     :param graph: representation for addresses to be visited
     :param truck: object carrying the packages.
     """
+    # while the package_list is not empty
     while package_list:
+        # variable is created to represent the first package in the package_list
         current_package = package_list[0]
+        # iterates through the packages in the package list
         for package in package_list:
-            if graph.dist(truck.current_node, package.current_node) < graph.dist(truck.current_node, current_package.current_node):
+            # if the distance between the truck's node and the iterated package's node IS LESS THAN the distance between
+            # the truck's node and the node of the package variable created (aka current_package)
+            if graph.dist(truck.current_node, package.current_node) < \
+                    graph.dist(truck.current_node, current_package.current_node):
+                # the current_package variable becomes the iterated package object
                 current_package = package
 
         # distance variable representing distance between 2 nodes selected
@@ -66,8 +73,6 @@ def delivery_route(package_list, graph, truck):
 
         # updating the status of the delivered package
         current_package.status = "Package has been delivered."
-
-
 
         # removing the current package from the truck object's list of packages
         package_list.remove(current_package)

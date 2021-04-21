@@ -21,14 +21,12 @@ class Main:
     # Big O(N^2)
     loadDistances_e('distances.csv', graph1)
 
-
     while True:
-        """
-        Big O(N)
-        This creates the User Interface. The user will have the opportunity to run the program when entering the number 1.
-        After the program has been ran, inquiries to specified packages or all packages can be made by selecting either 2 or 3. 
-        Entering the number 4 closes the program.
-        """
+
+        # Big O(N)
+        # This creates the User Interface. The user runs the program when entering the number 1. After the program has
+        # been ran, inquiries to specified packages or all packages can be made by selecting either 2 or 3.
+        # Entering the number 4 closes the program.
         print('')
         print('Welcome to WGUPS: ')
         print('\nEnter 1 to Run Program\nEnter 2 for Package Inquiry\nEnter 3 for All Statuses\nEnter 4 to Exit.')
@@ -43,7 +41,7 @@ class Main:
             # Three package lists are created. Packages are then pre-assigned to the package lists using the
             # hashtable look-up function
             # Big O(N) to retrieve packages
-            packages1 = [
+            packages_a = [
                 package_hash.lookup(1), package_hash.lookup(13), package_hash.lookup(14), package_hash.lookup(15),
                 package_hash.lookup(16),
                 package_hash.lookup(19), package_hash.lookup(20), package_hash.lookup(29), package_hash.lookup(30),
@@ -51,7 +49,7 @@ class Main:
                 package_hash.lookup(34), package_hash.lookup(37), package_hash.lookup(39), package_hash.lookup(40)
             ]
 
-            packages2 = [
+            packages_b = [
                 package_hash.lookup(2), package_hash.lookup(3), package_hash.lookup(4), package_hash.lookup(5),
                 package_hash.lookup(6), package_hash.lookup(7),
                 package_hash.lookup(8), package_hash.lookup(18), package_hash.lookup(25), package_hash.lookup(28),
@@ -59,7 +57,7 @@ class Main:
                 package_hash.lookup(38)
             ]
 
-            packages3 = [
+            packages_c = [
                 package_hash.lookup(9), package_hash.lookup(10), package_hash.lookup(11), package_hash.lookup(12),
                 package_hash.lookup(17), package_hash.lookup(19),
                 package_hash.lookup(22), package_hash.lookup(23), package_hash.lookup(24), package_hash.lookup(26),
@@ -67,19 +65,20 @@ class Main:
                 package_hash.lookup(35)
             ]
 
-            # Package lists are MANUALLY assigned to the package objects
-            truck1.package_list = packages1
-            truck2.package_list = packages2
+            # Package lists are MANUALLY assigned to truck objects
+            truck1.package_list = packages_a
+            truck2.package_list = packages_b
 
             # 480 and 545 are minute representations for the times that the trucks will be departing from the hub.
+            # 480 represents 08:00 AM, 545 represents 09:08 AM.
             truck1_departed = 480
             truck2_departed = 545
 
-            # In each of these upcoming For-Loops, a package object has its Departed and Delivery attributes set to the
-            # time of departure of the truck that each package is assigned to. The truck object has its time set to the
-            # time of departure as well.
-            # Then the trucks package list, the graph of vertices and edged, and the truck object are used as arguments
-            # in the Delivery Route method.
+            # In each of these upcoming For-Loops, a package object has its 'Departed' and 'Delivery' attributes set to
+            # the time of departure of the Truck object that each package is assigned to. The truck object has its time
+            # attribute set to the time of departure as well.
+            # Each Truck's package_list, the Graph object, and the Truck object are used as arguments in the
+            # Delivery_Route method.
             for package in truck1.package_list:
                 package.delivered_at = truck1_departed
                 package.departed = truck1_departed
@@ -102,7 +101,7 @@ class Main:
             # Truck 1 must wait for package 9 to have its address corrected. Truck 1 time is set to 10:25 AM and goes
             # back through the For-Loop with the leftover packages to be delivered.
             truck1.time = 615
-            truck1.package_list = packages3
+            truck1.package_list = packages_c
 
             for package in truck1.package_list:
                 package_delivery = truck1.time
@@ -154,7 +153,9 @@ class Main:
 
         elif menu_option == "3":
             # 550 represents 09:16 AM, 610 represents 10:16 AM, 750 represents 12:30 PM (in minutes).
-            # Print statements are then created for all packages to display the delivery status at the entered time.
+            # Print statements are then created for all packages. The delivery status at the entered time is displayed
+            # in each print statement. The information is retrieved using the Lookup function, which takes the hash
+            # table lookup function and the entered time as arguments.
             time1 = 550
             time2 = 610
             time3 = 750
