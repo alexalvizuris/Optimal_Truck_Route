@@ -45,8 +45,8 @@ class Main:
             packages_a = [
                 package_hash.lookup(1), package_hash.lookup(13), package_hash.lookup(14), package_hash.lookup(15),
                 package_hash.lookup(16),
-                package_hash.lookup(19), package_hash.lookup(20), package_hash.lookup(29), package_hash.lookup(30),
-                package_hash.lookup(31),
+                package_hash.lookup(19), package_hash.lookup(20), package_hash.lookup(21), package_hash.lookup(29),
+                package_hash.lookup(30), package_hash.lookup(31),
                 package_hash.lookup(34), package_hash.lookup(37), package_hash.lookup(39), package_hash.lookup(40)
             ]
 
@@ -60,7 +60,7 @@ class Main:
 
             packages_c = [
                 package_hash.lookup(9), package_hash.lookup(10), package_hash.lookup(11), package_hash.lookup(12),
-                package_hash.lookup(17), package_hash.lookup(19),
+                package_hash.lookup(17),
                 package_hash.lookup(22), package_hash.lookup(23), package_hash.lookup(24), package_hash.lookup(26),
                 package_hash.lookup(27), package_hash.lookup(33),
                 package_hash.lookup(35)
@@ -111,7 +111,7 @@ class Main:
             print('')
             print('Successfully delivered all packages!')
             print('')
-            print('Mileage accrued: ' + str(truck1.mileage + truck2.mileage))
+            print('Mileage accrued from Truck1 and Truck2: ' + str(truck1.mileage + truck2.mileage))
             # When successfully ran, the project's mileage accrued is --> 105.1 miles
 
         elif menu_option == "2":
