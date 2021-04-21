@@ -70,10 +70,8 @@ def delivery_route(package_list, graph, truck):
         truck.time += distance / truck.speed
         # updating the delivery time of the package to the trucks current time
         current_package.delivered_at = truck.time
-
         # updating the status of the delivered package
         current_package.status = "Package has been delivered."
-
         # removing the current package from the truck object's list of packages
         package_list.remove(current_package)
 

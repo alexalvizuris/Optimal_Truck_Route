@@ -1,3 +1,4 @@
+# Alejandro Alvizuris  Student ID # 000952724
 from hash import *
 from csvMethods import *
 from packages import *
@@ -76,7 +77,7 @@ class Main:
 
             # In each of these upcoming For-Loops, a package object has its 'Departed' and 'Delivery' attributes set to
             # the time of departure of the Truck object that each package is assigned to. The truck object has its time
-            # attribute set to the time of departure as well.
+            # attribute set to the time of departure as well. Each package's 'Status' is changed to 'En Route'.
             # Each Truck's package_list, the Graph object, and the Truck object are used as arguments in the
             # Delivery_Route method.
             for package in truck1.package_list:
@@ -84,7 +85,6 @@ class Main:
                 package.departed = truck1_departed
                 package.status = "En Route"
             truck1.time = truck1_departed
-
             delivery_route(truck1.package_list, graph1, truck1)
 
             for package in truck2.package_list:
@@ -92,7 +92,6 @@ class Main:
                 package.departed = truck2_departed
                 package.status = 'En Route'
             truck2.time = truck2_departed
-
             delivery_route(truck2.package_list, graph1, truck2)
 
             # Truck 1 returns back to the Hub
@@ -107,7 +106,6 @@ class Main:
                 package_delivery = truck1.time
                 package.departed = truck1.time
                 package.status = "En Route"
-
             delivery_route(truck1.package_list, graph1, truck1)
 
             print('')
@@ -131,8 +129,8 @@ class Main:
 
                 if inquiry is not None:
                     while True:
-                        # The user must input a time in which they would like to check the delivery status of the
-                        # package they are inquiring about
+                        # To check the delivery status of the package they are inquiring about, the user enters
+                        # a time in HH:MM AM/PM format
                         time = input('Enter a time in HH:MM AM/PM format to check package status: ')
                         format1 = re.match("[0-9][0-9]:[0-9][0-9] [A-Z][A-Z]", time)
 
@@ -152,38 +150,30 @@ class Main:
                     print('')
 
         elif menu_option == "3":
-            # 550 represents 09:16 AM, 610 represents 10:16 AM, 750 represents 12:30 PM (in minutes).
+            # 550 represents 09:16 AM, 610 represents 10:16 AM, 780 represents 01:00 PM (in minutes).
             # Print statements are then created for all packages. The delivery status at the entered time is displayed
             # in each print statement. The information is retrieved using the Lookup function, which takes the hash
             # table lookup function and the entered time as arguments.
             time1 = 550
             time2 = 610
-            time3 = 750
+            time3 = 780
 
             print('')
             print('--All Packages at ' + min_to_hour(time1) + ": \n")
-            print('')
 
             for i in range(1, 41):
-                print('')
                 print(lookup(package_hash.lookup(i), time1))
-                print('')
             print('')
             print('--All Packages at ' + min_to_hour(time2) + ': \n')
-            print('')
 
             for i in range(1, 41):
-                print('')
                 print(lookup(package_hash.lookup(i), time2))
-                print('')
             print('')
             print('--All Packages at ' + min_to_hour(time3) + ': \n')
-            print('')
 
             for i in range(1, 41):
-                print('')
                 print(lookup(package_hash.lookup(i), time3))
-                print('')
+
 
         elif menu_option == '4':
 
