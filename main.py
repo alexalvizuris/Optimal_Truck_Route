@@ -1,7 +1,6 @@
 # Alejandro Alvizuris  Student ID # 000952724
 from hash import *
 from csvMethods import *
-from packages import *
 from graph import *
 from truck import *
 from algorithm import *

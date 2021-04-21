@@ -42,7 +42,7 @@ def reverse_min(time):
 def delivery_route(package_list, graph, truck):
     """
     BIG O(N^2)
-    Greedy algorithm takes input and determines route for package delivery
+    Nearest neighbor algorithm takes input and determines route for package delivery
     :param package_list: list of package IDs that will be delivered during algorithm
     :param graph: representation for addresses to be visited
     :param truck: object carrying the packages.
